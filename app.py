@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import seaborn as sns
+import math
 
 # Load the data
 @st.cache
@@ -43,32 +45,11 @@ st.subheader("Data Preprocessing")
 selected_features = ["country", "year", "amount_local_currency"]
 ise_preprocessed = ise[selected_features]
 
-# Splitting the data
-st.subheader("Splitting Data")
+# Splitting the data (if necessary)
+# You can split the data manually without using scikit-learn
 
-# Add code for splitting the data into train and test sets here
-X = ise_preprocessed.drop("amount_local_currency", axis=1)
-y = ise_preprocessed["amount_local_currency"]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Display the sizes of train and test sets
-st.write("Size of Train Set:", X_train.shape[0])
-st.write("Size of Test Set:", X_test.shape[0])
-
-# Regression and Model Evaluation
-st.subheader("Regression and Model Evaluation")
-
-# Add your regression model and evaluation code here
-
-# Display confusion matrix
-st.write("Confusion Matrix:")
-st.write("Confusion matrix visualizations can be added here.")
-
-# Display model evaluation metrics (accuracy, precision, recall)
-st.write("Model Evaluation Metrics:")
-st.write("Accuracy:")
-st.write("Precision:")
-st.write("Recall:")
+# Display regression or modeling results (if not using scikit-learn)
+# You can focus on data exploration and visualization instead
 
 # Visualize additional results and insights as needed
 
